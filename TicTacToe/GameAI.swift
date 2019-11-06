@@ -10,7 +10,7 @@ import Foundation
 
 func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
     
-    // Check columns 0
+    // Check columns
     var numMarks = 0
     
     for x in 0..<3 {
@@ -28,6 +28,7 @@ func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
         
     }
     
+    // Check rows
     for y in 0..<3 {
         numMarks = 0
         
@@ -43,6 +44,7 @@ func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
         
     }
     
+    // Check top left to bottom right diagonal
     numMarks = 0
     for i in 0..<3 {
         if board[(i, i)] == player {
@@ -54,6 +56,7 @@ func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
         return true
     }
     
+    // Check top right to bottem left diagonal
     numMarks = 0
     for i in 0..<3 {
         if board[(2 - i, i)] == player {
