@@ -43,5 +43,27 @@ func game(board: GameBoard, isWonBy player: GameBoard.Mark) -> Bool {
         
     }
     
+    numMarks = 0
+    for i in 0..<3 {
+        if board[(i, i)] == player {
+            numMarks += 1
+        }
+    }
+    
+    if numMarks == 3 {
+        return true
+    }
+    
+    numMarks = 0
+    for i in 0..<3 {
+        if board[(2 - i, i)] == player {
+            numMarks += 1
+        }
+    }
+    
+    if numMarks == 3 {
+        return true
+    }
+    
     return false
 }
